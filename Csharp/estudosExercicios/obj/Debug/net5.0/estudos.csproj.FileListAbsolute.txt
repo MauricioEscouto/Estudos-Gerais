@@ -1,0 +1,16 @@
+C:\Users\mauri\Documents\estudosExercicios\estudosExercicios\bin\Debug\net5.0\estudos.exe
+C:\Users\mauri\Documents\estudosExercicios\estudosExercicios\bin\Debug\net5.0\estudos.deps.json
+C:\Users\mauri\Documents\estudosExercicios\estudosExercicios\bin\Debug\net5.0\estudos.runtimeconfig.json
+C:\Users\mauri\Documents\estudosExercicios\estudosExercicios\bin\Debug\net5.0\estudos.runtimeconfig.dev.json
+C:\Users\mauri\Documents\estudosExercicios\estudosExercicios\bin\Debug\net5.0\estudos.dll
+C:\Users\mauri\Documents\estudosExercicios\estudosExercicios\bin\Debug\net5.0\estudos.pdb
+C:\Users\mauri\Documents\estudosExercicios\estudosExercicios\obj\Debug\net5.0\estudos.csproj.AssemblyReference.cache
+C:\Users\mauri\Documents\estudosExercicios\estudosExercicios\obj\Debug\net5.0\estudos.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\mauri\Documents\estudosExercicios\estudosExercicios\obj\Debug\net5.0\estudos.AssemblyInfoInputs.cache
+C:\Users\mauri\Documents\estudosExercicios\estudosExercicios\obj\Debug\net5.0\estudos.AssemblyInfo.cs
+C:\Users\mauri\Documents\estudosExercicios\estudosExercicios\obj\Debug\net5.0\estudos.csproj.CoreCompileInputs.cache
+C:\Users\mauri\Documents\estudosExercicios\estudosExercicios\obj\Debug\net5.0\estudos.dll
+C:\Users\mauri\Documents\estudosExercicios\estudosExercicios\obj\Debug\net5.0\refint\estudos.dll
+C:\Users\mauri\Documents\estudosExercicios\estudosExercicios\obj\Debug\net5.0\estudos.pdb
+C:\Users\mauri\Documents\estudosExercicios\estudosExercicios\obj\Debug\net5.0\estudos.genruntimeconfig.cache
+C:\Users\mauri\Documents\estudosExercicios\estudosExercicios\obj\Debug\net5.0\ref\estudos.dll
