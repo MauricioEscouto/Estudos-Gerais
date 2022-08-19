@@ -1,0 +1,6 @@
+O cálculo do seu IMC deu: 25,71166207529844
+A classificação do seu IMC é: Sobre peso
+
+O cálculo do seu IMC deu: 24,801587301587304
+A classificação do seu IMC é: Peso normal
+

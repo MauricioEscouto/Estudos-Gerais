@@ -1,8 +1,6 @@
-﻿using System;
-
-namespace estudos
+﻿namespace estudos
 {
-     public class CalculadoraReajuste
+    public class CalculadoraReajuste
     {
         public float calcular(Reajuste reajuste, float salario)
         {
