@@ -1,0 +1,16 @@
+C:\Users\Suporte\Desktop\Mauricio\Estudos-Gerais\Csharp\Banco\Banco\bin\Debug\net5.0\Banco.exe
+C:\Users\Suporte\Desktop\Mauricio\Estudos-Gerais\Csharp\Banco\Banco\bin\Debug\net5.0\Banco.deps.json
+C:\Users\Suporte\Desktop\Mauricio\Estudos-Gerais\Csharp\Banco\Banco\bin\Debug\net5.0\Banco.runtimeconfig.json
+C:\Users\Suporte\Desktop\Mauricio\Estudos-Gerais\Csharp\Banco\Banco\bin\Debug\net5.0\Banco.runtimeconfig.dev.json
+C:\Users\Suporte\Desktop\Mauricio\Estudos-Gerais\Csharp\Banco\Banco\bin\Debug\net5.0\Banco.dll
+C:\Users\Suporte\Desktop\Mauricio\Estudos-Gerais\Csharp\Banco\Banco\bin\Debug\net5.0\ref\Banco.dll
+C:\Users\Suporte\Desktop\Mauricio\Estudos-Gerais\Csharp\Banco\Banco\bin\Debug\net5.0\Banco.pdb
+C:\Users\Suporte\Desktop\Mauricio\Estudos-Gerais\Csharp\Banco\Banco\obj\Debug\net5.0\Banco.csproj.AssemblyReference.cache
+C:\Users\Suporte\Desktop\Mauricio\Estudos-Gerais\Csharp\Banco\Banco\obj\Debug\net5.0\Banco.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Suporte\Desktop\Mauricio\Estudos-Gerais\Csharp\Banco\Banco\obj\Debug\net5.0\Banco.AssemblyInfoInputs.cache
+C:\Users\Suporte\Desktop\Mauricio\Estudos-Gerais\Csharp\Banco\Banco\obj\Debug\net5.0\Banco.AssemblyInfo.cs
+C:\Users\Suporte\Desktop\Mauricio\Estudos-Gerais\Csharp\Banco\Banco\obj\Debug\net5.0\Banco.csproj.CoreCompileInputs.cache
+C:\Users\Suporte\Desktop\Mauricio\Estudos-Gerais\Csharp\Banco\Banco\obj\Debug\net5.0\Banco.dll
+C:\Users\Suporte\Desktop\Mauricio\Estudos-Gerais\Csharp\Banco\Banco\obj\Debug\net5.0\ref\Banco.dll
+C:\Users\Suporte\Desktop\Mauricio\Estudos-Gerais\Csharp\Banco\Banco\obj\Debug\net5.0\Banco.pdb
+C:\Users\Suporte\Desktop\Mauricio\Estudos-Gerais\Csharp\Banco\Banco\obj\Debug\net5.0\Banco.genruntimeconfig.cache
