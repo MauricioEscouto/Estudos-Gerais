@@ -10,18 +10,22 @@ namespace Banco
     {
         public double taxa;
 
-        public double sacar(double valor)
+        public double sacar(double saldo, double valor)
         {
             double saque = saldo - valor;
-            saldo = saque;
-            return saldo;
+            return saque;
         }
 
-        public double depositar(double valor)
+        public double depositar(double saldo, double valor)
         {
             double deposito = saldo + valor;
-            saldo = deposito;
-            return saldo;
+            return deposito;
+        }
+
+        public double transferir(double saldo, double valor)
+        {
+            double transferencia = saldo - valor;
+            return transferencia;
         }
 
     }

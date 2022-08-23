@@ -1,3 +1,13 @@
+CPF
 052267
+NOME
 bruno
-email
+EMAIL
+bruno@gmail
+CONTA
+NUMERO
+258798
+AGENCIA
+217
+SALDO
+500
