@@ -234,11 +234,13 @@ namespace Banco
                         }
                         Console.WriteLine("\n---------------\n");
                         Console.Write("Informe o CPF do beneficiário: ");
-                        string perguntaBeneficiario = Console.ReadLine();
+                        string perguntaCpfBeneficiario = Console.ReadLine();
 
                         int contTransferencia = 1;
                         int contArquivoTransferencia = 1;
                         string nomeBeneficiario = string.Empty;
+                        string emailBeneficiario = string.Empty;
+                        int numeroContaBeneficiario = 0;
                         int counterTransferencia = 0;
 
                         while (contTransferencia < 4)
@@ -246,7 +248,7 @@ namespace Banco
                             string caminhoLerTransferencia = String.Format("C:\\Users\\Suporte\\Desktop\\Mauricio\\Estudos-Gerais\\Csharp\\Banco\\Banco\\PastaClientes\\{0}.txt", contArquivoTransferencia);
                             foreach (string line in File.ReadLines(caminhoLerTransferencia))
                             {
-                                if (line == perguntaBeneficiario)
+                                if (line == perguntaCpfBeneficiario)
                                 {
                                     //Console.WriteLine(cont);
                                     counterTransferencia = contTransferencia;
@@ -280,6 +282,27 @@ namespace Banco
 
                         foreach (string line in File.ReadLines(caminhoLerTransferencia1))
                         {
+                            if (line == "EMAIL")
+                            {
+                                string[] readText = File.ReadAllLines(caminhoLerTransferencia1);
+                                emailBeneficiario = readText[readText.Length - 8];
+                                break;
+                            }
+                        }
+
+                        foreach (string line in File.ReadLines(caminhoLerTransferencia1))
+                        {
+                            if (line == "NUMERO")
+                            {
+                                string[] readText = File.ReadAllLines(caminhoLerTransferencia1);
+                                string procuraNumeroContaBeneficiario = readText[readText.Length - 5];
+                                numeroContaBeneficiario = Int32.Parse(procuraNumeroContaBeneficiario);
+                                break;
+                            }
+                        }
+
+                        foreach (string line in File.ReadLines(caminhoLerTransferencia1))
+                        {
                             if (line == "SALDO")
                             {
                                 string[] readText = File.ReadAllLines(caminhoLerTransferencia1);
@@ -290,7 +313,14 @@ namespace Banco
                             }
                         }
 
-                        double saldoContaBeneficiarioPosTransferencia = valorDeTransferencia + saldoContaBeneficiario;
+                        Titular titularBeneficiario = new Titular(nomeBeneficiario, perguntaCpfBeneficiario, emailBeneficiario);
+                        Conta contaBeneficiario = new Conta();
+                        contaBeneficiario.numero = numeroContaBeneficiario;
+                        contaBeneficiario.agencia = 217;
+                        contaBeneficiario.saldo = saldoContaBeneficiario;
+
+
+                        contaBeneficiario.saldo = valorDeTransferencia + contaBeneficiario.saldo;
                         contaTitular.saldo =  contacorrente.transferir(contaTitular.saldo, valorDeTransferencia);
 
                         Console.WriteLine("\n-------------------------------------");
@@ -299,15 +329,44 @@ namespace Banco
                         Console.WriteLine("[1] SIM\n[2] NÃO");
                         Console.Write("Sua escolha: ");
                         perguntaTransferencia = Console.ReadLine();
+                        StreamWriter arquivoTexto = new StreamWriter(caminhoLer);
+                        arquivoTexto.WriteLine("CPF");
+                        arquivoTexto.WriteLine(titular.cpf);
+                        arquivoTexto.WriteLine("NOME");
+                        arquivoTexto.WriteLine(titular.nome);
+                        arquivoTexto.WriteLine("EMAIL");
+                        arquivoTexto.WriteLine(titular.email);
+                        arquivoTexto.WriteLine("CONTA");
+                        arquivoTexto.WriteLine("NUMERO");
+                        arquivoTexto.WriteLine(contaTitular.numero);
+                        arquivoTexto.WriteLine("AGENCIA");
+                        arquivoTexto.WriteLine(contaTitular.agencia);
+                        arquivoTexto.WriteLine("SALDO");
+                        arquivoTexto.WriteLine(contaTitular.saldo);
+                        arquivoTexto.Close();
 
-                        Console.WriteLine("Beneficiario: {0}", saldoContaBeneficiarioPosTransferencia);
+                        StreamWriter arquivoTextoBeneficiario = new StreamWriter(caminhoLerTransferencia1);
+                        arquivoTextoBeneficiario.WriteLine("CPF");
+                        arquivoTextoBeneficiario.WriteLine(titularBeneficiario.cpf);
+                        arquivoTextoBeneficiario.WriteLine("NOME");
+                        arquivoTextoBeneficiario.WriteLine(titularBeneficiario.nome);
+                        arquivoTextoBeneficiario.WriteLine("EMAIL");
+                        arquivoTextoBeneficiario.WriteLine(titularBeneficiario.email);
+                        arquivoTextoBeneficiario.WriteLine("CONTA");
+                        arquivoTextoBeneficiario.WriteLine("NUMERO");
+                        arquivoTextoBeneficiario.WriteLine(contaBeneficiario.numero);
+                        arquivoTextoBeneficiario.WriteLine("AGENCIA");
+                        arquivoTextoBeneficiario.WriteLine(contaBeneficiario.agencia);
+                        arquivoTextoBeneficiario.WriteLine("SALDO");
+                        arquivoTextoBeneficiario.WriteLine(contaBeneficiario.saldo);
+                        arquivoTextoBeneficiario.Close();
+
+                        
                         Console.WriteLine("Titular: {0}", contaTitular.saldo);
 
 
                     }
-
-                        //conta.saldo = contacorrente.depositar(conta.saldo, valor);
-
+                    
 
 
 
@@ -315,9 +374,9 @@ namespace Banco
 
 
 
-                    }
                 }
             }
+        }
 
 
 

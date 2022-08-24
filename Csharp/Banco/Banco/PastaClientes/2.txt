@@ -1,7 +1,7 @@
 CPF
 052267
 NOME
-bruno
+Bruno
 EMAIL
 bruno@gmail
 CONTA
@@ -10,4 +10,4 @@ NUMERO
 AGENCIA
 217
 SALDO
-500
+510
