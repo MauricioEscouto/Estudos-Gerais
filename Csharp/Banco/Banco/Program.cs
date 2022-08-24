@@ -93,10 +93,10 @@ namespace Banco
                     }
                 }
 
-                Conta conta = new Conta();
-                conta.numero = numeroConta;
-                conta.agencia = 217;
-                conta.saldo = saldoConta;
+                Conta contaTitular = new Conta();
+                contaTitular.numero = numeroConta;
+                contaTitular.agencia = 217;
+                contaTitular.saldo = saldoConta;
 
                 Console.WriteLine("\n-------------------------------------");
                 Console.WriteLine("[1]Consultar dados");
@@ -116,14 +116,14 @@ namespace Banco
                 {
                     Console.WriteLine("\n-------------------------------------");
                     Console.WriteLine("Nome: {0}\nE-mail cadastrado: {1}", titular.nome, titular.email);
-                    Console.WriteLine("Conta corrente número: {0}\nAgência: {1}", conta.numero, conta.agencia);
+                    Console.WriteLine("Conta corrente número: {0}\nAgência: {1}", contaTitular.numero, contaTitular.agencia);
                     Console.WriteLine("-------------------------------------\n");
                 }
 
                 if (pergunta == "2")
                 {
                     Console.WriteLine("\n-------------------------------------");
-                    Console.WriteLine("Seu saldo: {0}", conta.saldo);
+                    Console.WriteLine("Seu saldo: {0}", contaTitular.saldo);
                     Console.WriteLine("-------------------------------------\n");
                 }
 
@@ -134,13 +134,13 @@ namespace Banco
                         Console.WriteLine("\n-------------------------------------");
                         Console.Write("Informe o valor do saque: ");
                         double valor = Double.Parse(Console.ReadLine());
-                        if (valor > conta.saldo)
+                        if (valor > contaTitular.saldo)
                         {
-                            Console.Write("\nO valor informado é maior do que seu saldo de R${0}\n", conta.saldo);
+                            Console.Write("\nO valor informado é maior do que seu saldo de R${0}\n", contaTitular.saldo);
                             Console.Write("Informe um valor de saque menor ou igual ao seu saldo: ");
                             valor = Double.Parse(Console.ReadLine());
                         }
-                        conta.saldo = contacorrente.sacar(conta.saldo, valor);
+                        contaTitular.saldo = contacorrente.sacar(contaTitular.saldo, valor);
                         Console.WriteLine("\n-------------------------------------");
                         Console.WriteLine("\nSaque realizado com sucesso!");
                         Console.WriteLine("\n-------------------------------------\n");
@@ -159,11 +159,11 @@ namespace Banco
                     arquivoTexto.WriteLine(titular.email);
                     arquivoTexto.WriteLine("CONTA");
                     arquivoTexto.WriteLine("NUMERO");
-                    arquivoTexto.WriteLine(conta.numero);
+                    arquivoTexto.WriteLine(contaTitular.numero);
                     arquivoTexto.WriteLine("AGENCIA");
-                    arquivoTexto.WriteLine(conta.agencia);
+                    arquivoTexto.WriteLine(contaTitular.agencia);
                     arquivoTexto.WriteLine("SALDO");
-                    arquivoTexto.WriteLine(conta.saldo);
+                    arquivoTexto.WriteLine(contaTitular.saldo);
                     arquivoTexto.Close();
                 }
                 if (pergunta == "4")
@@ -180,7 +180,7 @@ namespace Banco
                             Console.Write("Informe um novo valor de depósito: ");
                             valor = Double.Parse(Console.ReadLine());
                         }
-                        conta.saldo = contacorrente.depositar(conta.saldo, valor);
+                        contaTitular.saldo = contacorrente.depositar(contaTitular.saldo, valor);
                         Console.WriteLine("\n-------------------------------------");
                         Console.WriteLine("\nDepósito realizado com sucesso!");
                         Console.WriteLine("\n-------------------------------------\n");
@@ -199,35 +199,37 @@ namespace Banco
                     arquivoTexto.WriteLine(titular.email);
                     arquivoTexto.WriteLine("CONTA");
                     arquivoTexto.WriteLine("NUMERO");
-                    arquivoTexto.WriteLine(conta.numero);
+                    arquivoTexto.WriteLine(contaTitular.numero);
                     arquivoTexto.WriteLine("AGENCIA");
-                    arquivoTexto.WriteLine(conta.agencia);
+                    arquivoTexto.WriteLine(contaTitular.agencia);
                     arquivoTexto.WriteLine("SALDO");
-                    arquivoTexto.WriteLine(conta.saldo);
+                    arquivoTexto.WriteLine(contaTitular.saldo);
                     arquivoTexto.Close();
                 }
                 
                 if (pergunta == "5")
                 {
+                    double saldoContaBeneficiario = 0;
+
                     string perguntaTransferencia = "1";
                     while (perguntaTransferencia == "1")
                     {
                         Console.WriteLine("\n-------------------------------------");
                         Console.Write("Informe o valor de transferência: ");
-                        double valor = Double.Parse(Console.ReadLine());
-                        while (valor < 1 || valor > conta.saldo)
+                        double valorDeTransferencia = Double.Parse(Console.ReadLine());
+                        while (valorDeTransferencia < 1 || valorDeTransferencia > contaTitular.saldo)
                         {
-                            if (valor < 1)
+                            if (valorDeTransferencia < 1)
                             {
                                 Console.Write("\nO valor informado deve ser maior que R$1,00\n");
                                 Console.Write("Informe um novo valor de transferência: ");
-                                valor = Double.Parse(Console.ReadLine());
+                                valorDeTransferencia = Double.Parse(Console.ReadLine());
                             }
-                            if (valor > conta.saldo)
+                            if (valorDeTransferencia > contaTitular.saldo)
                             {
-                                Console.Write("\nO valor informado é maior do que seu saldo de R${0}\n", conta.saldo);
+                                Console.Write("\nO valor informado é maior do que seu saldo de R${0}\n", contaTitular.saldo);
                                 Console.Write("Favor informe um valor de transferência maior ou igual ao seu saldo: ");
-                                valor = Double.Parse(Console.ReadLine());
+                                valorDeTransferencia = Double.Parse(Console.ReadLine());
                             }
                         }
                         Console.WriteLine("\n---------------\n");
@@ -238,8 +240,8 @@ namespace Banco
                         int contArquivoTransferencia = 1;
                         string nomeBeneficiario = string.Empty;
                         int counterTransferencia = 0;
-                        
-                        while (contTransferencia < 3)
+
+                        while (contTransferencia < 4)
                         {
                             string caminhoLerTransferencia = String.Format("C:\\Users\\Suporte\\Desktop\\Mauricio\\Estudos-Gerais\\Csharp\\Banco\\Banco\\PastaClientes\\{0}.txt", contArquivoTransferencia);
                             foreach (string line in File.ReadLines(caminhoLerTransferencia))
@@ -257,6 +259,7 @@ namespace Banco
                             contArquivoTransferencia++;
                         }
                         Console.WriteLine(counterTransferencia);
+
                         string caminhoLerTransferencia1 = String.Format("C:\\Users\\Suporte\\Desktop\\Mauricio\\Estudos-Gerais\\Csharp\\Banco\\Banco\\PastaClientes\\{0}.txt", counterTransferencia);
                         foreach (string line in File.ReadLines(caminhoLerTransferencia1))
                         {
@@ -280,13 +283,28 @@ namespace Banco
                             if (line == "SALDO")
                             {
                                 string[] readText = File.ReadAllLines(caminhoLerTransferencia1);
-                                string procuraSaldoConta = readText[readText.Length - 1];
-                                saldoConta = Double.Parse(procuraSaldoConta);
-                                Console.WriteLine(saldoConta);
+                                string procuraSaldoContaBeneficiario = readText[readText.Length - 1];
+                                saldoContaBeneficiario = Double.Parse(procuraSaldoContaBeneficiario);
+                                Console.WriteLine(saldoContaBeneficiario);
                                 break;
                             }
-                            }
                         }
+
+                        double saldoContaBeneficiarioPosTransferencia = valorDeTransferencia + saldoContaBeneficiario;
+                        contaTitular.saldo =  contacorrente.transferir(contaTitular.saldo, valorDeTransferencia);
+
+                        Console.WriteLine("\n-------------------------------------");
+                        Console.WriteLine("Transferência concluída com sucesso!\n");
+                        Console.Write("Deseja realizar outra transferência?\n");
+                        Console.WriteLine("[1] SIM\n[2] NÃO");
+                        Console.Write("Sua escolha: ");
+                        perguntaTransferencia = Console.ReadLine();
+
+                        Console.WriteLine("Beneficiario: {0}", saldoContaBeneficiarioPosTransferencia);
+                        Console.WriteLine("Titular: {0}", contaTitular.saldo);
+
+
+                    }
 
                         //conta.saldo = contacorrente.depositar(conta.saldo, valor);
 
