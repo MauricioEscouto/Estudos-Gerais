@@ -8,6 +8,7 @@ namespace Banco
     {
         static void Main(string[] args)
         {
+
             ContaCorrente contacorrente = new ContaCorrente();
             BancoDados bancoDados = new BancoDados();
             Operacao operacao = new Operacao();
@@ -25,43 +26,25 @@ namespace Banco
 
             int numeroConta = 0;
             double saldoConta = 0;
-
-            int cont = 1;
-            int counter = 0;
-            int contArquivo = 1;
-            string teste = "";
             int numeroTotalClientes = 0;
 
-            string caminhoLerTotalClientes = "C:\\Users\\Suporte\\Desktop\\Mauricio\\Estudos-Gerais\\Csharp\\Banco\\Banco\\PastaClientes\\totalClientes.txt";
+            string caminhoLerTotalClientes = "D:\\Mauricio\\Estudos-Gerais-main\\Csharp\\Banco\\Banco\\PastaClientes\\totalClientes.txt";
             foreach (string line in File.ReadLines(caminhoLerTotalClientes))
             {
                 numeroTotalClientes = Int32.Parse(line);
             }
 
-            //while (cont < numeroTotalClientes)
-            //{
-            //    string caminhoLer = String.Format("C:\\Users\\Suporte\\Desktop\\Mauricio\\Estudos-Gerais\\Csharp\\Banco\\Banco\\PastaClientes\\{0}.txt", contArquivo);
-            //    foreach (string line in File.ReadLines(caminhoLer))
-            //    {
-            //        if (line == cpfTitular)
-            //        {
-            //            counter = cont;
-            //            teste = line;
-            //            break;
-            //        }
-                    
-            //    }
-            //    cont++;
-            //    contArquivo++;
-            //}
-
+            Tuple<string, int> tupleLocalizar = localizaInformacoes.localizarCPF(cpfTitular, numeroTotalClientes);
+            string teste = tupleLocalizar.Item1;
+            int counter = tupleLocalizar.Item2;
+            
             int diferenciarMenu = 0;
             string pergunta = "0";
             while (pergunta != "6")
             {
                 if (teste == cpfTitular)
                 {
-                    string caminhoLer = String.Format("C:\\Users\\Suporte\\Desktop\\Mauricio\\Estudos-Gerais\\Csharp\\Banco\\Banco\\PastaClientes\\{0}.txt", counter);
+                    string caminhoLer = String.Format("D:\\Mauricio\\Estudos-Gerais-main\\Csharp\\Banco\\Banco\\PastaClientes\\{0}.txt", counter);
 
                     nomeTitular = localizaInformacoes.localizarNome(caminhoLer, diferenciarMenu, nomeTitular);
                     emailTitular = localizaInformacoes.localizarEmail(caminhoLer, emailTitular);
@@ -108,9 +91,9 @@ namespace Banco
 
                 if (teste != cpfTitular)
                 {
-                    Tuple<string, int> tuple = cadastroCliente.cadastrarNovoCliente(cpfTitular, numeroTotalClientes, caminhoLerTotalClientes);
-                    teste = tuple.Item1;
-                    counter = tuple.Item2;
+                    Tuple<string, int> tupleCadastrar = cadastroCliente.cadastrarNovoCliente(cpfTitular, numeroTotalClientes, caminhoLerTotalClientes);
+                    teste = tupleCadastrar.Item1;
+                    counter = tupleCadastrar.Item2;
                     diferenciarMenu = 1;
                 }
             }

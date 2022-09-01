@@ -25,13 +25,13 @@ namespace Banco
             conta.agencia = 217;
             conta.saldo = 0;
 
-            string caminhoNovoCliente = String.Format("C:\\Users\\Suporte\\Desktop\\Mauricio\\Estudos-Gerais\\Csharp\\Banco\\Banco\\PastaClientes\\{0}.txt", NumeroTotalClientes);
+            string caminhoNovoCliente = String.Format("D:\\Mauricio\\Estudos-Gerais-main\\Csharp\\Banco\\Banco\\PastaClientes\\{0}.txt", NumeroTotalClientes);
 
             bancoDados.salvarDadosTitular(titular.cpf, titular.nome, titular.email, conta.numero, conta.agencia, conta.saldo, caminhoNovoCliente);
 
             Console.WriteLine("\nConta criada com sucesso! Número da conta: {0}, Agência: {1}", conta.numero, conta.agencia);
 
-            CaminhoLerTotalClientes = "C:\\Users\\Suporte\\Desktop\\Mauricio\\Estudos-Gerais\\Csharp\\Banco\\Banco\\PastaClientes\\totalClientes.txt";
+            CaminhoLerTotalClientes = "D:\\Mauricio\\Estudos-Gerais-main\\Csharp\\Banco\\Banco\\PastaClientes\\totalClientes.txt";
             StreamWriter arquivoTextoTotalClientes = new StreamWriter(CaminhoLerTotalClientes);
 
             arquivoTextoTotalClientes.WriteLine(NumeroTotalClientes + 1);
@@ -43,7 +43,7 @@ namespace Banco
             int contArquivo = 1;
             while (cont < NumeroTotalClientes + 1)
             {
-                string caminhoLer = String.Format("C:\\Users\\Suporte\\Desktop\\Mauricio\\Estudos-Gerais\\Csharp\\Banco\\Banco\\PastaClientes\\{0}.txt", contArquivo);
+                string caminhoLer = String.Format("D:\\Mauricio\\Estudos-Gerais-main\\Csharp\\Banco\\Banco\\PastaClientes\\{0}.txt", contArquivo);
                 foreach (string line in File.ReadLines(caminhoLer))
                 {
                     if (line == CpfNovoCliente)

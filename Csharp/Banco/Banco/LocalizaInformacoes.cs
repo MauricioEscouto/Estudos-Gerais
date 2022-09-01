@@ -9,13 +9,33 @@ namespace Banco
 {
     public class LocalizaInformacoes
     {
-        public Tuple<string, int> localizarCPF(string CpfNovoCliente, int NumeroTotalClientes, string CaminhoLerTotalClientes)
+        public Tuple<string, int> localizarCPF(string CpfNovoCliente, int NumeroTotalClientes)
         {
+            int cont = 1;
+            int counter = 0;
+            int contArquivo = 1;
+            string teste = "";
 
+            while (cont < NumeroTotalClientes)
+            {
+                string caminhoLer = String.Format("D:\\Mauricio\\Estudos-Gerais-main\\Csharp\\Banco\\Banco\\PastaClientes\\{0}.txt", contArquivo);
+                foreach (string line in File.ReadLines(caminhoLer))
+                {
+                    if (line == CpfNovoCliente)
+                    {
+                        counter = cont;
+                        teste = line;
+                        break;
+                    }
 
+                }
+                cont++;
+                contArquivo++;
+            }
+            return Tuple.Create(teste, counter);
         }
 
-            public string localizarNome(string CaminhoArquivo, int DiferenciarMenu, string NomeTitular)
+        public string localizarNome(string CaminhoArquivo, int DiferenciarMenu, string NomeTitular)
         {
             foreach (string line in File.ReadLines(CaminhoArquivo))
             {

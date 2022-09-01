@@ -119,7 +119,7 @@ namespace Banco
 
                 while (contTransferencia < numeroTotalClientes)
                 {
-                    string caminhoLerTransferencia = String.Format("C:\\Users\\Suporte\\Desktop\\Mauricio\\Estudos-Gerais\\Csharp\\Banco\\Banco\\PastaClientes\\{0}.txt", contArquivoTransferencia);
+                    string caminhoLerTransferencia = String.Format("D:\\Mauricio\\Estudos-Gerais-main\\Csharp\\Banco\\Banco\\PastaClientes\\{0}.txt", contArquivoTransferencia);
                     foreach (string line in File.ReadLines(caminhoLerTransferencia))
                     {
                         if (line == perguntaCpfBeneficiario)
@@ -133,7 +133,7 @@ namespace Banco
                     contArquivoTransferencia++;
                 }
 
-                string caminhoLerTransferencia1 = String.Format("C:\\Users\\Suporte\\Desktop\\Mauricio\\Estudos-Gerais\\Csharp\\Banco\\Banco\\PastaClientes\\{0}.txt", counterTransferencia);
+                string caminhoLerTransferencia1 = String.Format("D:\\Mauricio\\Estudos-Gerais-main\\Csharp\\Banco\\Banco\\PastaClientes\\{0}.txt", counterTransferencia);
                 foreach (string line in File.ReadLines(caminhoLerTransferencia1))
                 {
 

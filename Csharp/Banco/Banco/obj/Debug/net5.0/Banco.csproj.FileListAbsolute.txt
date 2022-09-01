@@ -14,3 +14,6 @@ C:\Users\Suporte\Desktop\Mauricio\Estudos-Gerais\Csharp\Banco\Banco\obj\Debug\ne
 C:\Users\Suporte\Desktop\Mauricio\Estudos-Gerais\Csharp\Banco\Banco\obj\Debug\net5.0\ref\Banco.dll
 C:\Users\Suporte\Desktop\Mauricio\Estudos-Gerais\Csharp\Banco\Banco\obj\Debug\net5.0\Banco.pdb
 C:\Users\Suporte\Desktop\Mauricio\Estudos-Gerais\Csharp\Banco\Banco\obj\Debug\net5.0\Banco.genruntimeconfig.cache
+D:\Mauricio\Estudos-Gerais-main\Csharp\Banco\Banco\obj\Debug\net5.0\Banco.dll
+D:\Mauricio\Estudos-Gerais-main\Csharp\Banco\Banco\obj\Debug\net5.0\ref\Banco.dll
+D:\Mauricio\Estudos-Gerais-main\Csharp\Banco\Banco\obj\Debug\net5.0\Banco.pdb
